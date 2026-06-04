@@ -75,3 +75,97 @@ p {
 .button:hover {
   background: var(--accent-dark);
 }
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.secondary {
+  background: #e2e8f0;
+  color: #0f172a;
+}
+
+.secondary:hover {
+  background: #cbd5e1;
+}
+
+.smallLink {
+  font-size: 14px;
+  margin: 20px 0 0;
+}
+
+.pageWide {
+  align-items: flex-start;
+}
+
+.form {
+  display: grid;
+  gap: 14px;
+}
+
+input,
+select,
+textarea {
+  border: 1px solid #cbd5e1;
+  border-radius: 14px;
+  color: var(--foreground);
+  font: inherit;
+  padding: 12px 14px;
+  width: 100%;
+}
+
+textarea {
+  resize: vertical;
+}
+
+button.button {
+  border: 0;
+  cursor: pointer;
+  justify-content: center;
+}
+
+button.button:disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.checkbox {
+  align-items: center;
+  color: var(--muted);
+  display: flex;
+  gap: 10px;
+}
+
+.checkbox input {
+  width: auto;
+}
+
+.results {
+  display: grid;
+  gap: 14px;
+  margin-top: 24px;
+}
+
+.signal {
+  border: 1px solid #e2e8f0;
+  border-radius: 18px;
+  padding: 16px;
+}
+
+.signal span {
+  color: var(--muted);
+  display: block;
+  margin-top: 8px;
+}
+
+.signal p {
+  font-size: 15px;
+  margin: 10px 0 0;
+}
+
+.error {
+  color: #b91c1c;
+  margin-top: 16px;
+}

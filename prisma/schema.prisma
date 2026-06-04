@@ -4,18 +4,74 @@ generator client {
 
 datasource db {
   provider = "postgresql"
-  url      = env("DATABASE_URL")
 }
 
 model User {
-  id                 String   @id @default(cuid())
-  email              String   @unique
-  googleAccessToken  String
+  id                 String        @id @default(cuid())
+  email              String?       @unique
+  phone              String?
+  telegramUserId     String?       @unique
+  googleAccessToken  String?
   googleRefreshToken String?
   googleTokenExpiry  DateTime?
-  createdAt          DateTime @default(now())
-  updatedAt          DateTime @updatedAt
+  createdAt          DateTime      @default(now())
+  updatedAt          DateTime      @updatedAt
   reports            Report[]
+  sources            Source[]
+  signals            Signal[]
+  dailyReports       DailyReport[]
+}
+
+model Source {
+  id        String   @id @default(cuid())
+  userId    String
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  type      String
+  name      String
+  status    String   @default("active")
+  config    Json?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  signals   Signal[]
+
+  @@index([userId, type])
+  @@index([type, status])
+}
+
+model Signal {
+  id              String    @id @default(cuid())
+  userId          String
+  user            User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  sourceId        String?
+  source          Source?   @relation(fields: [sourceId], references: [id], onDelete: SetNull)
+  sourceType      String
+  externalId      String?
+  type            String
+  priority        String
+  title           String
+  contact         String?
+  summary         String
+  risk            String?
+  suggestedAction String
+  suggestedReply  String?
+  dueDate         DateTime?
+  status          String    @default("open")
+  createdAt       DateTime  @default(now())
+  updatedAt       DateTime  @updatedAt
+
+  @@unique([sourceId, externalId, type, title])
+  @@index([userId, status, createdAt])
+  @@index([sourceId, externalId])
+}
+
+model DailyReport {
+  id        String   @id @default(cuid())
+  userId    String
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  signals   Json
+  createdAt DateTime @default(now())
+
+  @@index([userId, createdAt])
 }
 
 model Report {

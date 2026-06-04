@@ -44,6 +44,21 @@ export async function GET(request: NextRequest) {
     },
   });
 
+  await prisma.source.upsert({
+    where: { id: `${user.id}:gmail` },
+    create: {
+      id: `${user.id}:gmail`,
+      userId: user.id,
+      type: "gmail",
+      name: `Gmail ${email}`,
+      status: "active",
+    },
+    update: {
+      name: `Gmail ${email}`,
+      status: "active",
+    },
+  });
+
   const response = NextResponse.redirect(new URL("/success", request.nextUrl.origin));
   response.cookies.set("client_radar_user_id", user.id, {
     httpOnly: true,
