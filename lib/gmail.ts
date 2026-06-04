@@ -71,6 +71,10 @@ export async function refreshGoogleTokenIfNeeded(user: User): Promise<User> {
     return user;
   }
 
+  if (!user.googleAccessToken) {
+    throw new Error("User does not have a Google access token.");
+  }
+
   const oauth2Client = getGoogleOAuthClient();
   oauth2Client.setCredentials({
     access_token: user.googleAccessToken,
@@ -92,6 +96,10 @@ export async function refreshGoogleTokenIfNeeded(user: User): Promise<User> {
 
 export async function fetchRecentThreads(user: User): Promise<GmailThread[]> {
   const freshUser = await refreshGoogleTokenIfNeeded(user);
+  if (!freshUser.googleAccessToken) {
+    return [];
+  }
+
   const oauth2Client = getGoogleOAuthClient();
   oauth2Client.setCredentials({
     access_token: freshUser.googleAccessToken,

@@ -8,7 +8,8 @@
     "start": "next start -p ${PORT:-3000}",
     "prisma:migrate": "prisma migrate deploy",
     "report": "tsx scripts/run-report.ts",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "imap:scan": "tsx scripts/run-imap-scan.ts"
   },
   "dependencies": {
     "@prisma/client": "latest",
@@ -16,7 +17,9 @@
     "next": "latest",
     "openai": "latest",
     "react": "latest",
-    "react-dom": "latest"
+    "react-dom": "latest",
+    "@prisma/adapter-pg": "latest",
+    "pg": "latest"
   },
   "devDependencies": {
     "@types/node": "latest",
