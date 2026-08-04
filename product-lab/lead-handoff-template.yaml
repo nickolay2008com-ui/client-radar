@@ -1,0 +1,72 @@
+version: 1
+handoff_status: pending
+
+company:
+  name: ""
+  country: ""
+  segment: ""
+  website: ""
+
+interest_evidence:
+  evo_record_id: ""
+  evo_event_id: ""
+  signal_type: "" # example_request | price_question | implementation_question | pilot_interest | call_request
+  exact_client_wording: ""
+  occurred_at: ""
+  source_url_or_reference: ""
+
+confirmed_context:
+  client_problem: ""
+  verified_facts: []
+  assumptions: []
+  full_history_reference: ""
+  gmail_thread_id: ""
+  contact_role: ""
+
+requested_decision:
+  decision: ""
+  owner: ""
+  decision_due_at: ""
+
+minimal_deliverable:
+  type: "" # upgrade_room | preview | before_after | implementation_scenario | pilot_offer | call_script
+  scope: ""
+  what_changes: ""
+  what_stays_unchanged: ""
+  client_input_required: []
+  success_evidence: []
+  stop_criterion: ""
+  deliverable_url: ""
+
+commercial_next_step:
+  action: ""
+  pricing_method: ""
+  delivery_window: ""
+  owner: ""
+
+verification:
+  mobile_360: false
+  mobile_375: false
+  mobile_390: false
+  links_checked: false
+  value_clear_under_30_seconds: false
+  trust_block_present: false
+  single_primary_cta: false
+  unsupported_claims_absent: false
+
+write_back:
+  evo_saved: false
+  saved_at: ""
+  result_verified: ""
+  weakness_found: ""
+  improvement_applied: ""
+  lesson_saved: ""
+  next_cycle_rule: ""
+
+validation_rules:
+  - "Do not change handoff_status to ready unless evo_record_id or evo_event_id is present."
+  - "Do not start a personalised asset unless exact_client_wording proves interest."
+  - "Do not mix verified_facts with assumptions."
+  - "Use exactly one minimal_deliverable.type."
+  - "Require one named owner and one commercial_next_step.action."
+  - "Reject the handoff when the source cannot be traced back to Evo."
