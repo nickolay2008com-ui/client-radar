@@ -8,12 +8,27 @@ Use only after confirmed client interest. The goal is one reversible commercial 
 - Confirmed client request:
 - Confirmed problem:
 - Source in Evo:
+- Evo record or event ID:
+- Gmail thread ID or other interaction reference:
 - Latest interaction date:
 - Decision-maker or contact role:
+- Exact wording that proves interest:
 
-Stop if the request or problem is not confirmed.
+Stop if the request, problem, or evidence of interest is not confirmed.
 
-## 2. Minimal deliverable
+## 2. Handoff contract
+
+Product Lab starts only when the acquisition record contains all five items:
+
+1. one verified client problem;
+2. one explicit signal of interest: example, price, implementation, pilot, or call;
+3. the complete contact history or thread reference;
+4. the requested commercial decision;
+5. one named owner for the next step.
+
+If any item is missing, return the record to acquisition with a single precise request for the missing evidence. Do not create a personal demo from assumptions.
+
+## 3. Minimal deliverable
 
 Choose exactly one:
 
@@ -32,7 +47,7 @@ The deliverable must answer:
 4. What is the smallest reversible first step?
 5. What commercial decision should follow?
 
-## 3. Value block
+## 4. Value block
 
 Use this structure:
 
@@ -44,7 +59,7 @@ Use this structure:
 
 **Scope boundary** — what is deliberately not included.
 
-## 4. Trust block
+## 5. Trust block
 
 Show:
 
@@ -52,9 +67,11 @@ Show:
 - unofficial preview until approved by the company;
 - no fabricated metrics, testimonials or guarantees;
 - data and integration requirements stated plainly;
-- reversible pilot and stop criterion.
+- reversible pilot and stop criterion;
+- who owns each implementation step;
+- what evidence will count as success.
 
-## 5. CTA
+## 6. CTA
 
 Default CTA:
 
@@ -64,21 +81,38 @@ Alternative asynchronous CTA:
 
 > Reply with the one service or page you want prioritised, and we will return the final pilot scope with price, timeline and acceptance criteria.
 
-## 6. Verification gate
+## 7. Verification gate
 
 Before publishing or handing off, verify:
 
-- mobile width: 360–390 px;
+- mobile widths: 360, 375 and 390 px;
+- no horizontal scrolling;
+- CTA is visible and understandable without zooming;
 - all links open correctly;
 - the company name and facts match Evo;
+- the confirmed problem is quoted or referenced correctly;
 - the benefit is understandable in under 30 seconds;
 - one primary CTA only;
 - no unsupported claims;
 - no heavy implementation before interest;
 - clear commercial next step;
-- rollback or stop criterion present.
+- rollback or stop criterion present;
+- owner, success evidence and decision date are explicit.
 
-## 7. Evo write-back
+## 8. Commercial next-step card
+
+Every deliverable ends with one card:
+
+- Decision requested:
+- Client input required:
+- Ally AI action after approval:
+- Price or pricing method:
+- Expected delivery window:
+- Success evidence:
+- Stop criterion:
+- Owner:
+
+## 9. Evo write-back
 
 Save:
 
@@ -89,9 +123,13 @@ Save:
 - `improvement.applied`
 - `lesson.saved`
 - `next_cycle_rule`
+- evidence of interest
 - deliverable URL
 - commercial next step
+- named owner
 
 ## Method improvement rule
 
 Before creating a new asset, first try to reduce the requested outcome to one screen, one decision and one next step. Add complexity only when the client explicitly asks for it or when the minimal version cannot validate the commercial hypothesis.
+
+The next cycle must reject any handoff that lacks an explicit interest signal and a traceable source reference.
